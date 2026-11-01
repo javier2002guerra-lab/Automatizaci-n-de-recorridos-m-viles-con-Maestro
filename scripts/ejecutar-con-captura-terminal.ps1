@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Abre una consola PowerShell visible, ejecuta allí scripts\ejecutar-pruebas.ps1 y, al terminar,
   captura una imagen PNG solo de esa ventana (no del resto del escritorio).
@@ -60,7 +60,11 @@ while (-not (Test-Path $marcaFin)) {
 $codigo = [int](Get-Content $marcaFin)
 Start-Sleep -Seconds 2
 
-$h = [Win]::FindWindow($null, $titulo)
+$h = [IntPtr]::Zero
+for ($i = 0; $i -lt 20 -and $h -eq [IntPtr]::Zero; $i++) {
+  $p = Get-Process | Where-Object { $_.MainWindowTitle -eq $titulo } | Select-Object -First 1
+  if ($p) { $h = $p.MainWindowHandle } else { Start-Sleep -Milliseconds 500 }
+}
 if ($h -eq [IntPtr]::Zero) { throw "No se encontró la ventana '$titulo'" }
 [Win]::ShowWindow($h, 9) | Out-Null   # SW_RESTORE
 [Win]::MoveWindow($h, 0, 0, 1400, 1000, $true) | Out-Null
@@ -80,5 +84,6 @@ $g.Dispose(); $bmp.Dispose()
 Write-Host "Captura de terminal: $png ($w x $hh)"
 Write-Host "Código de salida de la ejecución: $codigo"
 # Cerrar la consola de la ejecución
+Get-Process | Where-Object { $_.MainWindowTitle -eq $titulo } | Stop-Process -ErrorAction SilentlyContinue
 Stop-Process -Id $proc.Id -ErrorAction SilentlyContinue
 exit $codigo

@@ -1,0 +1,7 @@
+﻿ejecucion-conjunta-20261031-194151   Escenario 01   comandos= 36 verificaciones= 20 estados={'COMPLETED': 36}
+ejecucion-conjunta-20261031-194151   Escenario 02   comandos= 41 verificaciones= 22 estados={'COMPLETED': 41}
+ejecucion-conjunta-20261031-194151   Escenario 03   comandos= 45 verificaciones= 20 estados={'COMPLETED': 45}
+escenario-01-20261031-193356         Escenario 01   comandos= 36 verificaciones= 20 estados={'COMPLETED': 36}
+escenario-01-20261031-193643         Escenario 01   comandos= 36 verificaciones= 20 estados={'COMPLETED': 36}
+escenario-02-20261031-193827         Escenario 02   comandos= 41 verificaciones= 22 estados={'COMPLETED': 41}
+escenario-03-20261031-194005         Escenario 03   comandos= 45 verificaciones= 20 estados={'COMPLETED': 45}

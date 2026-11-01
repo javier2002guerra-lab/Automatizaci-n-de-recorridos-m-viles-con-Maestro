@@ -7,8 +7,7 @@ build/
 *.apk
 *.aab
 
-# Salidas crudas de Maestro (las evidencias relevantes se copian a evidencias/ y resultados/)
-resultados/ejecuciones/*/maestro/
+# Carpeta local de Maestro
 .maestro/
 
 # Firma y credenciales (nunca se publican)

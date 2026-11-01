@@ -1,0 +1,118 @@
+19:38:56.224 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Define variables RUNNING
+19:38:56.235 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Define variables COMPLETED
+19:38:56.236 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Define variables RUNNING
+19:38:56.237 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Define variables COMPLETED
+19:38:56.248 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Apply configuration RUNNING
+19:38:56.249 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Apply configuration COMPLETED
+19:38:56.250 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Run helpers/iniciar-limpio.yaml RUNNING
+19:38:56.256 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Apply configuration RUNNING
+19:38:56.257 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Apply configuration COMPLETED
+19:38:56.258 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Launch app "gt.edu.umg.taskflow" with clear state RUNNING
+19:38:56.263 [ INFO] maestro.Maestro.clearAppState$lambda$9: Clearing app state gt.edu.umg.taskflow
+19:39:00.335 [ INFO] maestro.Maestro.launchApp$lambda$6: Launching app gt.edu.umg.taskflow
+19:39:00.338 [ INFO] maestro.Maestro.launchApp$lambda$6: Stopping gt.edu.umg.taskflow app during launch
+19:39:00.854 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Launch app "gt.edu.umg.taskflow" with clear state COMPLETED
+19:39:00.856 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: titulo-pantalla-principal is visible RUNNING
+19:39:04.151 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: titulo-pantalla-principal is visible COMPLETED
+19:39:04.151 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: lista-vacia is visible RUNNING
+19:39:04.346 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: lista-vacia is visible COMPLETED
+19:39:04.347 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "0 pendientes · 0 completadas" is visible RUNNING
+19:39:04.504 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "0 pendientes · 0 completadas" is visible COMPLETED
+19:39:04.506 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Run helpers/iniciar-limpio.yaml COMPLETED
+19:39:04.506 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on id: btn-nueva-tarea RUNNING
+19:39:04.696 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Nueva tarea, hintText=, ignoreBoundsFiltering=false, resource-id=btn-nueva-tarea, clickable=true, bounds=[633,2128][1028,2274], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[TreeNode(attributes={text=＋ Nueva tarea, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[690,2170][969,2232], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false)], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=633, y=2128, width=395, height=146))
+19:39:06.118 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:39:06.130 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (830, 2201) using hierarchy based logic for wait
+19:39:07.709 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:39:07.710 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on id: btn-nueva-tarea COMPLETED
+19:39:07.711 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: titulo-formulario is visible RUNNING
+19:39:07.918 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: titulo-formulario is visible COMPLETED
+19:39:07.920 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Nueva tarea" is visible RUNNING
+19:39:08.110 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Nueva tarea" is visible COMPLETED
+19:39:08.111 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: input-titulo is visible RUNNING
+19:39:08.229 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: input-titulo is visible COMPLETED
+19:39:08.231 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: btn-guardar is visible RUNNING
+19:39:08.373 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: btn-guardar is visible COMPLETED
+19:39:08.374 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: error-titulo is not visible RUNNING
+19:39:08.997 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: error-titulo is not visible COMPLETED
+19:39:08.998 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on id: input-descripcion RUNNING
+19:39:09.149 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Descripción de la tarea, hintText=Detalles de la tarea, ignoreBoundsFiltering=false, resource-id=input-descripcion, clickable=true, bounds=[84,911][996,1174], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.EditText, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=84, y=911, width=912, height=263))
+19:39:10.439 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:39:10.443 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 1042) using hierarchy based logic for wait
+19:39:13.550 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:39:13.550 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on id: input-descripcion COMPLETED
+19:39:13.552 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Input text ${DESCRIPCION_INVALIDA} RUNNING
+19:39:16.220 [ INFO] maestro.Maestro.inputText: Inputting text: Descripcion sin titulo de prueba
+19:39:22.862 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Input text ${DESCRIPCION_INVALIDA} COMPLETED
+19:39:22.862 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Hide Keyboard RUNNING
+19:39:22.879 [ INFO] maestro.Maestro.hideKeyboard$lambda$13: Hiding Keyboard
+19:39:24.630 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Hide Keyboard COMPLETED
+19:39:24.630 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "${DESCRIPCION_INVALIDA}", id: input-descripcion is visible RUNNING
+19:39:24.779 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "${DESCRIPCION_INVALIDA}", id: input-descripcion is visible COMPLETED
+19:39:24.780 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot escenario-02_01_formulario-titulo-vacio RUNNING
+19:39:24.789 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+19:39:24.802 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+19:39:25.947 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot escenario-02_01_formulario-titulo-vacio COMPLETED
+19:39:25.947 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on id: btn-guardar RUNNING
+19:39:26.125 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Guardar tarea, hintText=, ignoreBoundsFiltering=false, resource-id=btn-guardar, clickable=true, bounds=[42,1269][1038,1405], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[TreeNode(attributes={text=Guardar tarea, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[410,1308][669,1365], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false)], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=42, y=1269, width=996, height=136))
+19:39:27.457 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:39:27.473 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 1337) using hierarchy based logic for wait
+19:39:28.531 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:39:28.531 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on id: btn-guardar COMPLETED
+19:39:28.532 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: error-titulo is visible RUNNING
+19:39:28.640 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: error-titulo is visible COMPLETED
+19:39:28.641 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "El título es obligatorio", id: error-titulo is visible RUNNING
+19:39:28.787 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "El título es obligatorio", id: error-titulo is visible COMPLETED
+19:39:28.787 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Tarea guardada correctamente" is not visible RUNNING
+19:39:29.413 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Tarea guardada correctamente" is not visible COMPLETED
+19:39:29.413 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: mensaje-confirmacion is not visible RUNNING
+19:39:30.048 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: mensaje-confirmacion is not visible COMPLETED
+19:39:30.048 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: titulo-formulario is visible RUNNING
+19:39:30.166 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: titulo-formulario is visible COMPLETED
+19:39:30.167 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "${DESCRIPCION_INVALIDA}", id: input-descripcion is visible RUNNING
+19:39:30.252 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "${DESCRIPCION_INVALIDA}", id: input-descripcion is visible COMPLETED
+19:39:30.253 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on id: input-titulo RUNNING
+19:39:30.331 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Título de la tarea, hintText=Ej.: Preparar la presentación, ignoreBoundsFiltering=false, resource-id=input-titulo, clickable=true, bounds=[84,619][996,735], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.EditText, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=84, y=619, width=912, height=116))
+19:39:31.628 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:39:31.642 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 677) using hierarchy based logic for wait
+19:39:34.460 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:39:34.460 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on id: input-titulo COMPLETED
+19:39:34.461 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Input text     RUNNING
+19:39:34.461 [ INFO] maestro.Maestro.inputText: Inputting text:    
+19:39:36.535 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Input text     COMPLETED
+19:39:36.536 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Hide Keyboard RUNNING
+19:39:36.540 [ INFO] maestro.Maestro.hideKeyboard$lambda$13: Hiding Keyboard
+19:39:37.721 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Hide Keyboard COMPLETED
+19:39:37.721 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on id: btn-guardar RUNNING
+19:39:37.857 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Guardar tarea, hintText=, ignoreBoundsFiltering=false, resource-id=btn-guardar, clickable=true, bounds=[42,1273][1038,1409], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[TreeNode(attributes={text=Guardar tarea, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[410,1312][669,1369], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false)], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=42, y=1273, width=996, height=136))
+19:39:39.159 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:39:39.176 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 1341) using hierarchy based logic for wait
+19:39:39.626 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on id: btn-guardar COMPLETED
+19:39:39.626 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "El título es obligatorio", id: error-titulo is visible RUNNING
+19:39:39.761 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "El título es obligatorio", id: error-titulo is visible COMPLETED
+19:39:39.761 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: mensaje-confirmacion is not visible RUNNING
+19:39:40.463 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: mensaje-confirmacion is not visible COMPLETED
+19:39:40.464 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot escenario-02_02_mensaje-validacion RUNNING
+19:39:40.470 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+19:39:40.478 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+19:39:40.904 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot escenario-02_02_mensaje-validacion COMPLETED
+19:39:40.906 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on id: btn-cancelar RUNNING
+19:39:41.059 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Cancelar, hintText=, ignoreBoundsFiltering=false, resource-id=btn-cancelar, clickable=true, bounds=[42,1435][1038,1563], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[TreeNode(attributes={text=Cancelar, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[460,1471][619,1525], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false)], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=42, y=1435, width=996, height=128))
+19:39:42.339 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:39:42.347 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 1499) using hierarchy based logic for wait
+19:39:43.359 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:39:43.360 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on id: btn-cancelar COMPLETED
+19:39:43.361 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: titulo-pantalla-principal is visible RUNNING
+19:39:43.479 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: titulo-pantalla-principal is visible COMPLETED
+19:39:43.480 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: lista-vacia is visible RUNNING
+19:39:43.594 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: lista-vacia is visible COMPLETED
+19:39:43.594 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "0 pendientes · 0 completadas" is visible RUNNING
+19:39:43.661 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "0 pendientes · 0 completadas" is visible COMPLETED
+19:39:43.662 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "${DESCRIPCION_INVALIDA}" is not visible RUNNING
+19:39:44.359 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "${DESCRIPCION_INVALIDA}" is not visible COMPLETED
+19:39:44.360 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: mensaje-confirmacion is not visible RUNNING
+19:39:45.065 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that id: mensaje-confirmacion is not visible COMPLETED
+19:39:45.065 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot escenario-02_03_estado-posterior-rechazo RUNNING
+19:39:45.069 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+19:39:45.077 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+19:39:45.429 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot escenario-02_03_estado-posterior-rechazo COMPLETED

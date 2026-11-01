@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Instala el APK de TaskFlow Mobile con ADB y verifica paquete y versión instalada.
 .EXAMPLE

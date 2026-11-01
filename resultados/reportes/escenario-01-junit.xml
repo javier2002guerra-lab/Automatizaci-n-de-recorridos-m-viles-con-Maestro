@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="TaskFlow_API35" tests="1" failures="0" time="50.629" timestamp="2026-10-31T19:37:14">
+    <testcase id="Escenario 01 - Registro exitoso de una tarea" name="Escenario 01 - Registro exitoso de una tarea" classname="Escenario 01 - Registro exitoso de una tarea" file="maestro\01-registro-exitoso.yaml" time="50.511" timestamp="2026-10-31T19:37:14" status="SUCCESS">
+      <properties>
+        <property name="tags" value="escenario-01"/>
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

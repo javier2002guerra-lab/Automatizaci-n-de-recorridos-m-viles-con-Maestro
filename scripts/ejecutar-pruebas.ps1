@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Ejecuta los escenarios de Maestro sobre TaskFlow Mobile y guarda registros, reportes JUnit y capturas.
 .PARAMETER Escenario
@@ -67,7 +67,12 @@ Push-Location $raiz
 try {
   $argsMaestro = @('test') + $flujos.Archivos + @('--format', 'JUNIT', '--output', $junit, '--test-output-dir', (Join-Path $dirEjec 'maestro'), '--udid', $Dispositivo, '--no-ansi')
   $ErrorActionPreference = 'Continue'
-  & $maestro @argsMaestro 2>&1 | ForEach-Object { "$_" } | Tee-Object -FilePath $log -Append
+  # Se muestra cada línea en la terminal y se agrega al registro en UTF-8 (Tee-Object de PS 5 usa UTF-16)
+  & $maestro @argsMaestro 2>&1 | ForEach-Object {
+    $linea = "$_"
+    Write-Host $linea
+    Add-Content -Path $log -Value $linea -Encoding utf8
+  }
   $codigo = $LASTEXITCODE
   $ErrorActionPreference = 'Stop'
 } finally { Pop-Location }

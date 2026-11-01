@@ -1,0 +1,19 @@
+﻿Fecha: 2026-10-31 19:32:39 -06:00
+SHA-256 APK: 51D38B35FFB085B16BAD725791BC9A7C811E485F837CF49BF9396E6870C80904
+List of devices attached
+emulator-5554          device product:sdk_gphone64_x86_64 model:sdk_gphone64_x86_64 device:emu64xa transport_id:1
+
+Performing Streamed Install
+Success
+--- Paquete instalado ---
+package:gt.edu.umg.taskflow
+
+    versionCode=1 minSdk=24 targetSdk=36
+    versionName=1.0.0
+
+
+--- Metro (puerto 8081) en el host ---
+Escuchando en 8081: False
+
+PID app: 2583
+topResumedActivity=ActivityRecord{d6f39bc u0 gt.edu.umg.taskflow/.MainActivity t7}

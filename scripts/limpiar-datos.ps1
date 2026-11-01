@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Borra los datos locales de TaskFlow Mobile en el dispositivo/emulador de pruebas.
 .DESCRIPTION

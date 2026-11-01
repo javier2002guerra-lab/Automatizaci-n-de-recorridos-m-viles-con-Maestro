@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="TaskFlow_API35" tests="1" failures="0" time="60.554" timestamp="2026-10-31T19:40:32">
+    <testcase id="Escenario 03 - Persistencia tras cerrar y reabrir" name="Escenario 03 - Persistencia tras cerrar y reabrir" classname="Escenario 03 - Persistencia tras cerrar y reabrir" file="maestro\03-persistencia-reapertura.yaml" time="60.471" timestamp="2026-10-31T19:40:32" status="SUCCESS">
+      <properties>
+        <property name="tags" value="escenario-03"/>
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

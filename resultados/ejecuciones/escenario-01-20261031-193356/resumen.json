@@ -1,0 +1,22 @@
+﻿{
+    "ejecucion":  "escenario-01",
+    "flujos":  [
+                   "maestro/01-registro-exitoso.yaml"
+               ],
+    "inicio":  "2026-10-31T19:33:56.1599816-06:00",
+    "fin":  "2026-10-31T19:35:46.8666143-06:00",
+    "dispositivo":  "emulator-5554",
+    "modelo":  "sdk_gphone64_x86_64",
+    "android":  "15",
+    "api":  "35",
+    "app":  "gt.edu.umg.taskflow versionName=1.0.0",
+    "maestro":  "2.12.0",
+    "codigoSalida":  0,
+    "resultado":  "APROBADO",
+    "reporteJUnit":  "resultados\\reportes\\escenario-01-junit.xml",
+    "capturas":  [
+                     "evidencias/escenario-01/escenario-01_01_pantalla-inicial.png",
+                     "evidencias/escenario-01/escenario-01_02_formulario-completado.png",
+                     "evidencias/escenario-01/escenario-01_03_confirmacion-y-tarea-creada.png"
+                 ]
+}

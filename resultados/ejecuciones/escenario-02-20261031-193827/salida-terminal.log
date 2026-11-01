@@ -1,0 +1,18 @@
+﻿=== TaskFlow Mobile - Ejecución Maestro: escenario-02 ===
+Fecha inicio : 2026-10-31 19:38:27 -06:00
+Dispositivo  : emulator-5554 (sdk_gphone64_x86_64, Android 15, API 35)
+Aplicación   : gt.edu.umg.taskflow versionName=1.0.0
+Comando      : maestro test maestro/02-validacion-entrada.yaml --format JUNIT --output C:\tfm\resultados\reportes\escenario-02-junit.xml --test-output-dir C:\tfm\resultados\ejecuciones\escenario-02-20261031-193827\maestro --udid emulator-5554
+
+
+Waiting for flows to complete...
+[Passed] Escenario 02 - Validacion de campo obligatorio (52s)
+
+1/1 Flow Passed in 52s
+
+
+Fecha fin    : 2026-10-31 19:39:48 -06:00
+Duración     : 81.3 s
+Código salida: 0
+Resultado    : APROBADO
+Capturas     : 3 copiadas a evidencias\escenario-02

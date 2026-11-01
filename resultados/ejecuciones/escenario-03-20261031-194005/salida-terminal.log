@@ -1,0 +1,18 @@
+﻿=== TaskFlow Mobile - Ejecución Maestro: escenario-03 ===
+Fecha inicio : 2026-10-31 19:40:05 -06:00
+Dispositivo  : emulator-5554 (sdk_gphone64_x86_64, Android 15, API 35)
+Aplicación   : gt.edu.umg.taskflow versionName=1.0.0
+Comando      : maestro test maestro/03-persistencia-reapertura.yaml --format JUNIT --output C:\tfm\resultados\reportes\escenario-03-junit.xml --test-output-dir C:\tfm\resultados\ejecuciones\escenario-03-20261031-194005\maestro --udid emulator-5554
+
+
+Waiting for flows to complete...
+[Passed] Escenario 03 - Persistencia tras cerrar y reabrir (1m)
+
+1/1 Flow Passed in 1m 1s
+
+
+Fecha fin    : 2026-10-31 19:41:34 -06:00
+Duración     : 89.5 s
+Código salida: 0
+Resultado    : APROBADO
+Capturas     : 4 copiadas a evidencias\escenario-03

@@ -1,0 +1,29 @@
+﻿{
+    "ejecucion":  "ejecucion-conjunta",
+    "flujos":  [
+                   "maestro"
+               ],
+    "inicio":  "2026-10-31T19:41:51.8807049-06:00",
+    "fin":  "2026-10-31T19:44:52.1737668-06:00",
+    "dispositivo":  "emulator-5554",
+    "modelo":  "sdk_gphone64_x86_64",
+    "android":  "15",
+    "api":  "35",
+    "app":  "gt.edu.umg.taskflow versionName=1.0.0",
+    "maestro":  "2.12.0",
+    "codigoSalida":  0,
+    "resultado":  "APROBADO",
+    "reporteJUnit":  "resultados\\reportes\\ejecucion-conjunta-junit.xml",
+    "capturas":  [
+                     "evidencias/ejecucion-conjunta/escenario-01_01_pantalla-inicial.png",
+                     "evidencias/ejecucion-conjunta/escenario-01_02_formulario-completado.png",
+                     "evidencias/ejecucion-conjunta/escenario-01_03_confirmacion-y-tarea-creada.png",
+                     "evidencias/ejecucion-conjunta/escenario-02_01_formulario-titulo-vacio.png",
+                     "evidencias/ejecucion-conjunta/escenario-02_02_mensaje-validacion.png",
+                     "evidencias/ejecucion-conjunta/escenario-02_03_estado-posterior-rechazo.png",
+                     "evidencias/ejecucion-conjunta/escenario-03_01_tarea-creada-antes-del-cierre.png",
+                     "evidencias/ejecucion-conjunta/escenario-03_02_app-reabierta-tarea-conservada.png",
+                     "evidencias/ejecucion-conjunta/escenario-03_03_tarea-completada.png",
+                     "evidencias/ejecucion-conjunta/escenario-03_04_completada-tras-segunda-reapertura.png"
+                 ]
+}

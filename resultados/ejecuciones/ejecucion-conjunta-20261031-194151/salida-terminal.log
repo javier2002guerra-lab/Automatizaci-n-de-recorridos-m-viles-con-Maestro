@@ -1,0 +1,20 @@
+﻿=== TaskFlow Mobile - Ejecución Maestro: ejecucion-conjunta ===
+Fecha inicio : 2026-10-31 19:41:51 -06:00
+Dispositivo  : emulator-5554 (sdk_gphone64_x86_64, Android 15, API 35)
+Aplicación   : gt.edu.umg.taskflow versionName=1.0.0
+Comando      : maestro test maestro --format JUNIT --output C:\tfm\resultados\reportes\ejecucion-conjunta-junit.xml --test-output-dir C:\tfm\resultados\ejecuciones\ejecucion-conjunta-20261031-194151\maestro --udid emulator-5554
+
+
+Waiting for flows to complete...
+[Passed] Escenario 01 - Registro exitoso de una tarea (50s)
+[Passed] Escenario 02 - Validacion de campo obligatorio (46s)
+[Passed] Escenario 03 - Persistencia tras cerrar y reabrir (57s)
+
+3/3 Flows Passed in 2m 32s
+
+
+Fecha fin    : 2026-10-31 19:44:52 -06:00
+Duración     : 180.3 s
+Código salida: 0
+Resultado    : APROBADO
+Capturas     : 10 copiadas a evidencias\ejecucion-conjunta

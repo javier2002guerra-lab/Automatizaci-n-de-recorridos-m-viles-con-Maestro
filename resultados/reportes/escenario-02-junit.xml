@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="TaskFlow_API35" tests="1" failures="0" time="52.358" timestamp="2026-10-31T19:38:54">
+    <testcase id="Escenario 02 - Validacion de campo obligatorio" name="Escenario 02 - Validacion de campo obligatorio" classname="Escenario 02 - Validacion de campo obligatorio" file="maestro\02-validacion-entrada.yaml" time="52.252" timestamp="2026-10-31T19:38:54" status="SUCCESS">
+      <properties>
+        <property name="tags" value="escenario-02"/>
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>
