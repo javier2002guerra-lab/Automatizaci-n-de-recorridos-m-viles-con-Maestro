@@ -1,0 +1,74 @@
+# ESCENARIO 01: Registro exitoso de una tarea
+# Precondición: app instalada. El estado se limpia al inicio (helpers/iniciar-limpio.yaml),
+# por lo que no depende de ejecuciones ni sesiones anteriores.
+appId: gt.edu.umg.taskflow
+name: "Escenario 01 - Registro exitoso de una tarea"
+tags:
+  - escenario-01
+env:
+  TITULO: "Preparar informe de pruebas"
+  DESCRIPCION: "Redactar el informe final con evidencias de Maestro"
+---
+# 1-2. Abrir la app en estado limpio y verificar la pantalla principal
+- runFlow: helpers/iniciar-limpio.yaml
+- assertVisible:
+    id: "titulo-pantalla-principal"
+    text: "Mis tareas"
+- assertVisible:
+    id: "btn-nueva-tarea"
+- takeScreenshot: escenario-01_01_pantalla-inicial
+
+# 3. Entrar al formulario de nueva tarea
+- tapOn:
+    id: "btn-nueva-tarea"
+- extendedWaitUntil:
+    visible:
+      id: "titulo-formulario"
+    timeout: 10000
+- assertVisible: "Nueva tarea"
+- assertVisible:
+    id: "input-titulo"
+- assertVisible:
+    id: "input-descripcion"
+
+# 4-5. Ingresar título y descripción con el teclado de Android
+- tapOn:
+    id: "input-titulo"
+- inputText: ${TITULO}
+- tapOn:
+    id: "input-descripcion"
+- inputText: ${DESCRIPCION}
+- hideKeyboard
+- assertVisible:
+    id: "input-titulo"
+    text: ${TITULO}
+- assertVisible:
+    id: "input-descripcion"
+    text: ${DESCRIPCION}
+- takeScreenshot: escenario-01_02_formulario-completado
+
+# 6-7. Guardar y verificar la confirmación
+- tapOn:
+    id: "btn-guardar"
+- extendedWaitUntil:
+    visible:
+      id: "mensaje-confirmacion"
+    timeout: 10000
+- assertVisible: "Tarea guardada correctamente"
+- assertNotVisible:
+    id: "titulo-formulario"
+- assertNotVisible:
+    id: "error-titulo"
+
+# 8. La tarea aparece en el listado con el título correcto
+- assertVisible:
+    id: "titulo-${TITULO}"
+    text: ${TITULO}
+- assertVisible:
+    id: "estado-${TITULO}"
+    text: "Pendiente"
+- assertVisible: ${DESCRIPCION}
+- assertVisible: "1 pendiente · 0 completadas"
+- assertNotVisible:
+    id: "lista-vacia"
+- takeScreenshot: escenario-01_03_confirmacion-y-tarea-creada

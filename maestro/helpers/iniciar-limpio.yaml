@@ -1,0 +1,16 @@
+# Helper: abre TaskFlow Mobile con un estado inicial controlado.
+# clearState: true borra SOLO los datos privados de la app gt.edu.umg.taskflow
+# en el dispositivo de pruebas (equivale a "Borrar datos" en Ajustes de Android).
+appId: gt.edu.umg.taskflow
+---
+- launchApp:
+    appId: gt.edu.umg.taskflow
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: "titulo-pantalla-principal"
+    timeout: 20000
+- assertVisible:
+    id: "lista-vacia"
+- assertVisible: "0 pendientes · 0 completadas"

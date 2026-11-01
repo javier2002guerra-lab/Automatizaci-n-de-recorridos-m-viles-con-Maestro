@@ -1,0 +1,23 @@
+# Helper: registra una tarea desde la pantalla principal.
+# Variables de entrada: TITULO, DESCRIPCION
+appId: gt.edu.umg.taskflow
+---
+- tapOn:
+    id: "btn-nueva-tarea"
+- extendedWaitUntil:
+    visible:
+      id: "titulo-formulario"
+    timeout: 10000
+- tapOn:
+    id: "input-titulo"
+- inputText: ${TITULO}
+- tapOn:
+    id: "input-descripcion"
+- inputText: ${DESCRIPCION}
+- hideKeyboard
+- tapOn:
+    id: "btn-guardar"
+- extendedWaitUntil:
+    visible:
+      id: "mensaje-confirmacion"
+    timeout: 10000

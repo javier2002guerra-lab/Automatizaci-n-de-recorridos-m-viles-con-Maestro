@@ -1,0 +1,84 @@
+# ESCENARIO 02: Validación de campo obligatorio
+# Precondición: app instalada. El estado se limpia al inicio, así que el listado empieza vacío
+# y cualquier registro inválido sería detectable.
+appId: gt.edu.umg.taskflow
+name: "Escenario 02 - Validacion de campo obligatorio"
+tags:
+  - escenario-02
+env:
+  DESCRIPCION_INVALIDA: "Descripcion sin titulo de prueba"
+---
+# 1-2. Abrir la app limpia e ir al formulario
+- runFlow: helpers/iniciar-limpio.yaml
+- tapOn:
+    id: "btn-nueva-tarea"
+- extendedWaitUntil:
+    visible:
+      id: "titulo-formulario"
+    timeout: 10000
+- assertVisible: "Nueva tarea"
+- assertVisible:
+    id: "input-titulo"
+- assertVisible:
+    id: "btn-guardar"
+- assertNotVisible:
+    id: "error-titulo"
+
+# 3-4. Dejar el título vacío e introducir solo la descripción opcional
+- tapOn:
+    id: "input-descripcion"
+- inputText: ${DESCRIPCION_INVALIDA}
+- hideKeyboard
+- assertVisible:
+    id: "input-descripcion"
+    text: ${DESCRIPCION_INVALIDA}
+- takeScreenshot: escenario-02_01_formulario-titulo-vacio
+
+# 5-6. Pulsar guardar y verificar el mensaje de validación
+- tapOn:
+    id: "btn-guardar"
+- extendedWaitUntil:
+    visible:
+      id: "error-titulo"
+    timeout: 10000
+- assertVisible:
+    id: "error-titulo"
+    text: "El título es obligatorio"
+- assertNotVisible: "Tarea guardada correctamente"
+- assertNotVisible:
+    id: "mensaje-confirmacion"
+# La app permanece en el formulario, con los datos escritos
+- assertVisible:
+    id: "titulo-formulario"
+- assertVisible:
+    id: "input-descripcion"
+    text: ${DESCRIPCION_INVALIDA}
+
+# Un título formado solo por espacios también debe rechazarse
+- tapOn:
+    id: "input-titulo"
+- inputText: "   "
+- hideKeyboard
+- tapOn:
+    id: "btn-guardar"
+- assertVisible:
+    id: "error-titulo"
+    text: "El título es obligatorio"
+- assertNotVisible:
+    id: "mensaje-confirmacion"
+- takeScreenshot: escenario-02_02_mensaje-validacion
+
+# 7. Volver al listado y comprobar que no se registró la tarea inválida
+- tapOn:
+    id: "btn-cancelar"
+- extendedWaitUntil:
+    visible:
+      id: "titulo-pantalla-principal"
+    timeout: 10000
+- assertVisible:
+    id: "lista-vacia"
+- assertVisible: "0 pendientes · 0 completadas"
+- assertNotVisible: ${DESCRIPCION_INVALIDA}
+- assertNotVisible:
+    id: "mensaje-confirmacion"
+- takeScreenshot: escenario-02_03_estado-posterior-rechazo

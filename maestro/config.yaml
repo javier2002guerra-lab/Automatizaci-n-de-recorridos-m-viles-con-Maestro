@@ -1,0 +1,11 @@
+# Configuración del workspace de Maestro.
+# Al ejecutar `maestro test maestro/` se corren solo los tres escenarios de la raíz
+# (los archivos de helpers/ se invocan con runFlow) y en este orden.
+flows:
+  - "*.yaml"
+executionOrder:
+  continueOnFailure: true
+  flowsOrder:
+    - 01-registro-exitoso
+    - 02-validacion-entrada
+    - 03-persistencia-reapertura

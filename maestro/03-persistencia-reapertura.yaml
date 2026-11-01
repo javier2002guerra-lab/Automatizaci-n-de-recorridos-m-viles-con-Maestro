@@ -1,0 +1,79 @@
+# ESCENARIO 03: Reapertura y recuperación del estado
+# La limpieza (clearState) se hace UNA sola vez, al principio, antes de preparar los datos.
+# Las reaperturas posteriores NO usan clearState, para comprobar la persistencia local.
+appId: gt.edu.umg.taskflow
+name: "Escenario 03 - Persistencia tras cerrar y reabrir"
+tags:
+  - escenario-03
+env:
+  TITULO: "Tarea persistente reapertura"
+  DESCRIPCION: "Debe conservarse al cerrar la app"
+---
+# 1-3. Estado limpio, crear la tarea y comprobar que se guardó
+- runFlow: helpers/iniciar-limpio.yaml
+- runFlow:
+    file: helpers/crear-tarea.yaml
+    env:
+      TITULO: ${TITULO}
+      DESCRIPCION: ${DESCRIPCION}
+- assertVisible: "Tarea guardada correctamente"
+- assertVisible:
+    id: "titulo-${TITULO}"
+    text: ${TITULO}
+- assertVisible:
+    id: "estado-${TITULO}"
+    text: "Pendiente"
+- takeScreenshot: escenario-03_01_tarea-creada-antes-del-cierre
+
+# 4. Cerrar la aplicación (detiene el proceso, conserva sus datos)
+- stopApp: gt.edu.umg.taskflow
+
+# 5-6. Reabrir SIN clearState y verificar que la tarea sigue ahí
+- launchApp:
+    appId: gt.edu.umg.taskflow
+    clearState: false
+- extendedWaitUntil:
+    visible:
+      id: "titulo-pantalla-principal"
+    timeout: 20000
+- extendedWaitUntil:
+    visible:
+      id: "titulo-${TITULO}"
+    timeout: 10000
+- assertVisible:
+    id: "titulo-${TITULO}"
+    text: ${TITULO}
+- assertVisible: ${DESCRIPCION}
+- assertVisible:
+    id: "estado-${TITULO}"
+    text: "Pendiente"
+# La confirmación pertenece a la sesión anterior; no debe reaparecer
+- assertNotVisible:
+    id: "mensaje-confirmacion"
+- assertNotVisible:
+    id: "lista-vacia"
+- takeScreenshot: escenario-03_02_app-reabierta-tarea-conservada
+
+# 7-8. Marcar como completada y verificar el cambio visual
+- tapOn:
+    id: "check-${TITULO}"
+- assertVisible:
+    id: "estado-${TITULO}"
+    text: "Completada"
+- assertVisible: "0 pendientes · 1 completada"
+- takeScreenshot: escenario-03_03_tarea-completada
+
+# Comprobación adicional: el estado "Completada" también sobrevive a otra reapertura
+- stopApp: gt.edu.umg.taskflow
+- launchApp:
+    appId: gt.edu.umg.taskflow
+    clearState: false
+- extendedWaitUntil:
+    visible:
+      id: "estado-${TITULO}"
+    timeout: 20000
+- assertVisible:
+    id: "estado-${TITULO}"
+    text: "Completada"
+- assertVisible: "0 pendientes · 1 completada"
+- takeScreenshot: escenario-03_04_completada-tras-segunda-reapertura

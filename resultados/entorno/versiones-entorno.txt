@@ -1,0 +1,41 @@
+﻿Registro de entorno - 2026-10-31 07:59:05 -06:00
+Sistema operativo: Microsoft Windows 11 Home Single Language 10.0.26200 (build 26200) 64 bits
+CPU: AMD Ryzen 5 7520U with Radeon Graphics
+RAM: 7.2 GB
+Node.js: v22.10.0
+npm: 10.9.0
+Java: java version "21.0.1" 2023-10-17 LTS
+Maestro CLI: 2.12.0
+ADB: Android Debug Bridge version 1.0.41 / Version 37.0.1-15733141
+Android Emulator: Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Aceleración: accel: 0 WHPX(10.0.26200) is installed and usable. accel
+Expo CLI: 58.1.18
+Git: git version 2.49.0.windows.1
+GitHub CLI: gh version 2.87.3 (2026-02-23)
+Python: Python 3.11.9
+
+--- Dispositivo (adb devices -l) ---
+List of devices attached
+emulator-5554          device product:sdk_gphone64_x86_64 model:sdk_gphone64_x86_64 device:emu64xa transport_id:1
+
+ro.product.model: sdk_gphone64_x86_64
+ro.product.manufacturer: Google
+ro.build.version.release: 15
+ro.build.version.sdk: 35
+ro.product.cpu.abi: x86_64
+ro.kernel.qemu: 1
+ro.build.fingerprint: google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys
+Resolución: Physical size: 1080x2400
+Densidad: Physical density: 420
+
+--- AVD config ---
+abi.type = x86_64
+hw.device.name = pixel_6
+hw.lcd.density = 420
+hw.lcd.height = 2400
+hw.lcd.width = 1080
+image.sysdir.1 = system-images\android-35\google_apis\x86_64\
+tag.id = google_apis
+hw.ramSize = 2048
+hw.keyboard = no
+Nombre AVD: TaskFlow_API35

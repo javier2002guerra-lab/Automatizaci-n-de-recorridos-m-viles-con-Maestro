@@ -1,0 +1,28 @@
+# Dependencias y salidas de compilación
+node_modules/
+app/android/
+app/ios/
+app/.expo/
+build/
+*.apk
+*.aab
+
+# Salidas crudas de Maestro (las evidencias relevantes se copian a evidencias/ y resultados/)
+resultados/ejecuciones/*/maestro/
+.maestro/
+
+# Firma y credenciales (nunca se publican)
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.pem
+.env
+.env*.local
+local.properties
+
+# Varios
+*.log.tmp
+.DS_Store
+Thumbs.db
