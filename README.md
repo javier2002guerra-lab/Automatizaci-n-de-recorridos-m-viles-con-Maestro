@@ -98,11 +98,14 @@ No se probó en dispositivos físicos ni en otras versiones de Android.
 ## 5. Descargar el código e instalar dependencias
 
 ```powershell
-git clone https://github.com/javier2002guerra-lab/Automatizaci-n-de-recorridos-m-viles-con-Maestro.git C:\tfm
+git clone -c core.longpaths=true https://github.com/javier2002guerra-lab/Automatizaci-n-de-recorridos-m-viles-con-Maestro.git C:\tfm
 cd C:\tfm\app
 npm ci
 ```
 
+> `core.longpaths=true` es necesario en Windows: la salida original de Maestro guardada en `resultados/ejecuciones/`
+> usa carpetas con nombres largos y, sin esa opción, Git no puede crear esos archivos al clonar.
+>
 > Se recomienda una ruta corta y sin espacios ni tildes (por ejemplo `C:\tfm`): en Windows, CMake/Gradle
 > fallan con rutas largas al compilar los módulos nativos de React Native.
 
