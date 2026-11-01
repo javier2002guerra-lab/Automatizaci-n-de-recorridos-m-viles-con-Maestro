@@ -244,8 +244,8 @@ terminal son imágenes de la ventana real de PowerShell donde corrió cada ejecu
 
 - **Código probado y evidencias:** commit [`5ee32f0`](https://github.com/javier2002guerra-lab/Automatizaci-n-de-recorridos-m-viles-con-Maestro/commit/5ee32f03b67ccbf163f5c378d44f20f6cfbdd02f) — es el commit sobre el que se creó la
   Release [`v1.0.0`](https://github.com/javier2002guerra-lab/Automatizaci-n-de-recorridos-m-viles-con-Maestro/releases/tag/v1.0.0) y el que cita el informe PDF.
-- **Commit de entrega:** el commit siguiente solo agrega este README y el informe PDF (no cambia código, flujos ni
-  evidencias). Su SHA es el último de la rama [`main`](https://github.com/javier2002guerra-lab/Automatizaci-n-de-recorridos-m-viles-con-Maestro/commits/main).
+- **Commit de entrega:** los commits posteriores a `5ee32f0` solo agregan y ajustan este README y el informe PDF
+  (no cambian código, flujos ni evidencias). El commit de entrega es el último de la rama [`main`](https://github.com/javier2002guerra-lab/Automatizaci-n-de-recorridos-m-viles-con-Maestro/commits/main).
 
 ## 14. Limitaciones conocidas
 
