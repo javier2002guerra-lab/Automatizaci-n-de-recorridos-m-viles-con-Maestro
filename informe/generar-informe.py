@@ -43,9 +43,9 @@ E = {
     "normal": ParagraphStyle("n", parent=base["Normal"], fontName="Calibri", fontSize=11, leading=15,
                              alignment=TA_JUSTIFY, spaceAfter=6),
     "h1": ParagraphStyle("h1", parent=base["Heading1"], fontName="Calibri-Bold", fontSize=16, leading=20,
-                         textColor=AZUL, spaceBefore=10, spaceAfter=8),
+                         textColor=AZUL, spaceBefore=10, spaceAfter=8, keepWithNext=1),
     "h2": ParagraphStyle("h2", parent=base["Heading2"], fontName="Calibri-Bold", fontSize=13, leading=16,
-                         textColor=AZUL, spaceBefore=8, spaceAfter=6),
+                         textColor=AZUL, spaceBefore=8, spaceAfter=6, keepWithNext=1),
     "celda": ParagraphStyle("c", fontName="Calibri", fontSize=9, leading=11.5),
     "celdaB": ParagraphStyle("cb", fontName="Calibri-Bold", fontSize=9, leading=11.5, textColor=colors.white),
     "codigo": ParagraphStyle("code", fontName="Consolas", fontSize=8, leading=10.5, backColor=GRIS,
@@ -80,6 +80,23 @@ def tabla(filas, anchos, cabecera=True):
         estilo.append(("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, GRIS]))
     t.setStyle(TableStyle(estilo))
     return t
+
+
+def recorte_terminal(ruta: Path) -> Path:
+    """Copia de la captura de terminal recortada al área que contiene texto (solo para el PDF).
+    El archivo original completo permanece sin cambios en evidencias/."""
+    im = PILImage.open(ruta).convert("RGB")
+    w, h = im.size
+    gris = im.convert("L").point(lambda v: 255 if v > 60 else 0)
+    ultima = 60
+    for y in range(h - 12, 40, -1):
+        if gris.crop((12, y, w - 45, y + 1)).getbbox():
+            ultima = y
+            break
+    destino = RAIZ / "informe" / ".tmp" / ruta.name
+    destino.parent.mkdir(exist_ok=True)
+    im.crop((0, 0, w, min(h, ultima + 24))).save(destino)
+    return destino
 
 
 class Figuras:
@@ -136,6 +153,20 @@ def entorno():
             k, v = linea.split("=", 1)
             datos[k.strip()] = v.strip()
     return datos
+
+
+def unir_titulos(h):
+    """Mantiene cada título (o grupo de títulos seguidos) en la misma página que el bloque siguiente."""
+    salida, grupo = [], []
+    for f in h:
+        if isinstance(f, Paragraph) and f.style.name in ("h1", "h2"):
+            grupo.append(f)
+        elif grupo:
+            salida.append(KeepTogether(grupo + [f]))
+            grupo = []
+        else:
+            salida.append(f)
+    return salida + grupo
 
 
 def pie_pagina(canvas, doc):
@@ -227,7 +258,7 @@ def main():
             texto = "Maestro devolvió errores; ver el registro de la ejecución en resultados/ejecuciones."
         return f"<b>{r['resultado']}</b> (código de salida {r['codigoSalida']}). {texto}"
 
-    h += [PageBreak(), P("3. Escenarios automatizados", "h1"), tabla([
+    h += [P("3. Escenarios automatizados", "h1"), tabla([
         ["Escenario", "Objetivo", "Precondiciones", "Acciones principales", "Resultado esperado", "Resultado observado"],
         ["01 – Registro exitoso<br/><font face='Consolas' size='7'>01-registro-exitoso.yaml</font>",
          "Crear una tarea y verla en el listado.",
@@ -288,12 +319,17 @@ def main():
                  fila_ej("escenario-03", "Escenario 03"), fila_ej("ejecucion-conjunta", "Conjunta (3 flujos)")],
                 [3.5 * cm, 3.4 * cm, 2.6 * cm, 2.0 * cm, 2.2 * cm, 2.8 * cm]),
           Spacer(1, 6),
+          P("Además de las ejecuciones de la tabla, hubo una primera ejecución del escenario 01 "
+            "(<font face='Consolas'>resultados/ejecuciones/escenario-01-20261031-193356</font>), también aprobada con código 0; "
+            "se repitió solo para corregir la codificación del registro y la captura de la terminal, y se conserva en el repositorio. "
+            "En total, los siete archivos <font face='Consolas'>commands.json</font> de Maestro (uno por flujo ejecutado) registran todos sus comandos con estado "
+            "COMPLETED (<font face='Consolas'>resultados/resumen-comandos-maestro.txt</font>)."),
           P("En la ejecución conjunta Maestro corrió los tres flujos en orden (definido en "
             "<font face='Consolas'>maestro/config.yaml</font>) sobre la misma instalación. Como cada flujo limpia "
             "su propio estado al comenzar, ninguno depende de los datos que deja el anterior.")]
 
     # ---------------- 5. Evidencias ----------------
-    h += [PageBreak(), P("5. Evidencias gráficas", "h1"),
+    h += [P("5. Evidencias gráficas", "h1"),
           P("Todas las capturas del dispositivo se tomaron con el comando <font face='Consolas'>takeScreenshot</font> de "
             "Maestro durante las ejecuciones registradas. Las capturas de terminal son imágenes de la ventana real de "
             "PowerShell en la que corrió cada ejecución."),
@@ -302,14 +338,14 @@ def main():
     h.append(fig.fila([(e / "escenario-01_01_pantalla-inicial.png", "Pantalla principal de TaskFlow Mobile (estado limpio)."),
                        (e / "escenario-01_02_formulario-completado.png", "Formulario completado."),
                        (e / "escenario-01_03_confirmacion-y-tarea-creada.png", "Confirmación y tarea registrada.")]))
-    h.append(fig.img(e / "terminal-escenario-01.png", "Resultado de Maestro para el escenario 01 (terminal)."))
+    h.append(fig.img(recorte_terminal(e / "terminal-escenario-01.png"), "Resultado de Maestro para el escenario 01: ventana de PowerShell de la ejecución (área con texto; original completo en evidencias/escenario-01/)."))
 
     h += [P("5.2 Escenario 02 – Validación de campo obligatorio", "h2")]
     e = ev / "escenario-02"
     h.append(fig.fila([(e / "escenario-02_01_formulario-titulo-vacio.png", "Formulario con el título vacío."),
                        (e / "escenario-02_02_mensaje-validacion.png", "Mensaje de validación."),
                        (e / "escenario-02_03_estado-posterior-rechazo.png", "Listado sin registros tras el rechazo.")]))
-    h.append(fig.img(e / "terminal-escenario-02.png", "Resultado de Maestro para el escenario 02 (terminal)."))
+    h.append(fig.img(recorte_terminal(e / "terminal-escenario-02.png"), "Resultado de Maestro para el escenario 02: ventana de PowerShell de la ejecución (área con texto; original completo en evidencias/escenario-02/)."))
 
     h += [P("5.3 Escenario 03 – Reapertura y recuperación del estado", "h2")]
     e = ev / "escenario-03"
@@ -318,11 +354,12 @@ def main():
                        (e / "escenario-03_03_tarea-completada.png", "Tarea marcada como completada."),
                        (e / "escenario-03_04_completada-tras-segunda-reapertura.png", "Estado conservado tras otra reapertura.")],
                       alto=9 * cm))
-    h.append(fig.img(e / "terminal-escenario-03.png", "Resultado de Maestro para el escenario 03 (terminal)."))
+    h.append(fig.img(recorte_terminal(e / "terminal-escenario-03.png"), "Resultado de Maestro para el escenario 03: ventana de PowerShell de la ejecución (área con texto; original completo en evidencias/escenario-03/)."))
 
     h += [P("5.4 Ejecución conjunta", "h2")]
-    h.append(fig.img(ev / "ejecucion-conjunta" / "terminal-ejecucion-conjunta.png",
-                     "Resultado de Maestro para la ejecución conjunta de los tres escenarios (terminal).", alto_max=13 * cm))
+    h.append(fig.img(recorte_terminal(ev / "ejecucion-conjunta" / "terminal-ejecucion-conjunta.png"),
+                     "Resultado de Maestro para la ejecución conjunta de los tres escenarios: ventana de PowerShell "
+                     "(área con texto; original completo en evidencias/ejecucion-conjunta/).", alto_max=13 * cm))
 
     # ---------------- 6. Preparación y limpieza ----------------
     h += [P("6. Preparación y limpieza", "h1")]
@@ -353,8 +390,9 @@ def main():
         "El APK incluye las arquitecturas arm64-v8a y x86_64 (no armeabi-v7a ni x86), para reducir tiempo de compilación.",
         "El APK release está firmado con la clave de depuración que genera Expo; sirve para instalarlo directamente, "
         "pero no para publicarlo en Google Play, que exige una clave de subida propia.",
-        "Maestro en Android escribe con <font face='Consolas'>inputText</font> sin caracteres acentuados de forma fiable, por eso "
-        "los datos de prueba que se teclean no llevan tildes (los textos de la interfaz sí).",
+        "Los datos que Maestro teclea con <font face='Consolas'>inputText</font> se escribieron sin tildes por precaución, "
+        "ya que la escritura de caracteres no ASCII en Android puede no ser fiable; no se probó la entrada con acentos. "
+        "Los textos de la interfaz y las aserciones sí usan tildes (por ejemplo «El título es obligatorio»).",
         "La carpeta <font face='Consolas'>app/android</font> no se versiona: se genera con <font face='Consolas'>expo prebuild</font> "
         "a partir de <font face='Consolas'>app.json</font>.",
     ])
@@ -389,7 +427,7 @@ def main():
                             leftMargin=2.2 * cm, rightMargin=2.2 * cm, topMargin=2 * cm, bottomMargin=2 * cm,
                             title="Automatización de recorridos móviles con Maestro",
                             author="Javier Alejandro Guerra Zepeda", subject="Informe final – TaskFlow Mobile")
-    doc.build(h, onFirstPage=pie_pagina, onLaterPages=pie_pagina)
+    doc.build(unir_titulos(h), onFirstPage=pie_pagina, onLaterPages=pie_pagina)
     print("PDF generado:", RAIZ / "informe" / "Informe-Final-Maestro.pdf")
 
 

@@ -25,3 +25,4 @@ local.properties
 *.log.tmp
 .DS_Store
 Thumbs.db
+informe/.tmp/
